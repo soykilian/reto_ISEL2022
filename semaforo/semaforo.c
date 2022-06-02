@@ -42,6 +42,8 @@ void set_yellow_first(fsm_t *this)
 	gettimeofday(&now, NULL);
 	timeval_add(&timer1, &step, &now);
 	light_p = 2;
+	printf("SEMAFORO PPAL : %i, SEMAFORO SECND %i\n", light_p, light_s);
+	printf("------------------------------------------------\n");
 }
 
 void set_red_first(fsm_t *this)
@@ -52,6 +54,8 @@ void set_red_first(fsm_t *this)
 	timeval_add(&timer2, &step, &now);
 	light_p = 0;
 	light_s = 1;
+	printf("SEMAFORO PPAL : %i, SEMAFORO SECND %i\n", light_p, light_s);
+	printf("------------------------------------------------\n");
 }
 
 void set_yellow_second(fsm_t *this)
@@ -61,6 +65,8 @@ void set_yellow_second(fsm_t *this)
 	gettimeofday(&now, NULL);
 	timeval_add(&timer1, &step, &now);
 	light_s = 2;
+	printf("SEMAFORO PPAL : %i, SEMAFORO SECND %i\n", light_p, light_s);
+	printf("------------------------------------------------\n");
 }
 
 void set_green_first(fsm_t *this)
@@ -71,6 +77,8 @@ void set_green_first(fsm_t *this)
 	timeval_add(&timer2, &step, &now);
 	light_s = 0;
 	light_p = 1;
+	printf("SEMAFORO PPAL : %i, SEMAFORO SECND %i\n", light_p, light_s);
+	printf("------------------------------------------------\n");
 }
 /******************************************************************************/
 fsm_t* fsm_new_semaforo(void)
