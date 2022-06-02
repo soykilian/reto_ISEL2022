@@ -33,7 +33,7 @@ void fsm_init (fsm_t* this, fsm_trans_t* tt)
   this->current_state = tt[0].orig_state;
 }
 
-void	fsm_fire (fsm_t* this)
+void	fsm_fire(fsm_t* this)
 {
   fsm_trans_t* t;
 
