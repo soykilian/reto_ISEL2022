@@ -29,7 +29,6 @@ static void do_cod(fsm_t* this)
 {
 	pulsador = 1;
     cmd[0] = '\0';
-	printf("pulsador %d\n", pulsador);
 }
 
 fsm_t*	fsm_new_interp(void)
