@@ -85,7 +85,8 @@ void save_code(fsm_t *this)
 void aprove_code(fsm_t *this)
 {
 	codigo_ok = 1;
-	printf("CODIGOOK\n");
+	ALARMA_ACTIVA = !ALARMA_ACTIVA;
+	printf("ALARMA = %d\n", ALARMA_ACTIVA);
 	i = 0;
 	cont = 0;
 }

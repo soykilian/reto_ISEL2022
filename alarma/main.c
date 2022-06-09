@@ -16,10 +16,13 @@ int main()
 	
 	fsm_t* alarma_fsm = fsm_new_alarma();
 	fsm_t* interp_fsm = fsm_new_interp();
+	fsm_t* light_fsm = fsm_new_light();
 	gettimeofday(&next_activation, NULL);
+	ALARMA_ACTIVA = 0;
 	while (1)
 	{
 		fsm_fire(alarma_fsm);
+		fsm_fire(light_fsm);
 		fsm_fire(interp_fsm);
 		timeval_add(&next_activation, &next_activation, &clk_period);
 		delay_until(&next_activation);

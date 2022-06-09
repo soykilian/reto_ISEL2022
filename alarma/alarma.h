@@ -10,6 +10,9 @@
 int cont;
 int pulsador;
 int codigo_ok;
+int light;
+int presencia;
+int ALARMA_ACTIVA;
 
 void timeval_sub (struct timeval *res, struct timeval *a, struct timeval *b);
 void timeval_add (struct timeval *res, struct timeval *a, struct timeval *b);
@@ -21,5 +24,6 @@ fsm_t*  fsm_new_interp(void);
 fsm_t*	fsm_new (fsm_trans_t* tt);
 void fsm_init (fsm_t* this, fsm_trans_t* tt);
 void	fsm_fire(fsm_t* this);
+fsm_t* fsm_new_light(void);
 //fsm_t*	fsm_new_interp(void);
 void delay_until (struct timeval* next_activation);
