@@ -36,7 +36,6 @@ static int cmd_notpresencia(fsm_t* fsm)
 static void do_cod(fsm_t* this)
 {
 	pulsador = 1;
-	printf("AAAAAA\n");
     cmd[0] = '\0';
 }
 
