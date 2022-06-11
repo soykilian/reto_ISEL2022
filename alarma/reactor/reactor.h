@@ -4,6 +4,7 @@
 #include "sys/time.h"
 #include "alarma.h"
 #include "light.h"
+#include "sound.h"
 
 void timeval_sub (struct timeval *res, struct timeval *a, struct timeval *b);
 void timeval_add (struct timeval *res, struct timeval *a, struct timeval *b);

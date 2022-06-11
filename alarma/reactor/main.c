@@ -5,6 +5,7 @@
 static fsm_t *alarma_fsm;
 static fsm_t *light_fsm;
 static fsm_t *interp_fsm;
+static fsm_t *sound_fsm;
 
 static void interp_task (struct event_handler_t* this) {
     static struct timeval period = {0, 50*1000};
@@ -23,19 +24,28 @@ static void light_task (struct event_handler_t* this) {
     timeval_add (&this->next_activation, &this->next_activation, &period);
 }
 
+static void sound_task (struct event_handler_t* this) {
+    static struct timeval period = {0, 100*1000};
+    fsm_fire(sound_fsm);
+    timeval_add (&this->next_activation, &this->next_activation, &period);
+}
 int main () {
 
-    EventHandler task_alarm, task_light, task_interp;
+    EventHandler task_alarm, task_light, task_interp, task_sound;
     reactor_init();
 
     light_fsm = fsm_new_light();
     alarma_fsm = fsm_new_alarma();
 	interp_fsm = fsm_new_interp();
+	sound_fsm = fsm_new_sound();
 
-    event_handler_init (&task_interp, 3, interp_task);
+    event_handler_init (&task_interp, 4, interp_task);
     reactor_add_handler (&task_interp);
 
-    event_handler_init (&task_alarm, 2, alarm_task);
+    event_handler_init (&task_sound, 2, sound_task);
+    reactor_add_handler (&task_sound);
+
+    event_handler_init (&task_alarm, 3, alarm_task);
     reactor_add_handler (&task_alarm);
 
     event_handler_init (&task_light, 1, light_task);

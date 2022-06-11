@@ -57,7 +57,7 @@ void act_cont(fsm_t *this)
 	gettimeofday(&now, NULL);
 	timeval_add(&timer1, &now, &step);
 	cont++;
-	printf("contador %d\n",cont);
+	printf("CONT%d\n", cont);
 	pulsador=0;
 }
 void increase_i(fsm_t *this)
