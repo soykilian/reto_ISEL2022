@@ -1,6 +1,9 @@
 #include "alarma.h"
 #include "light.h"
 #include "reactor.h"
+#define MAGENTA "\x1b[35m"
+#define RESET   "\x1b[0m"
+#define BLUE    "\x1b[32m"
 
 static fsm_t *alarma_fsm;
 static fsm_t *light_fsm;
@@ -52,6 +55,12 @@ int main () {
     reactor_add_handler (&task_light);
 
     //Start handling them
+	printf("----------------------------" BLUE "MANUAL" RESET "----------------------------\n");
+	printf("Comandos de uso\n");
+	printf("El pulsador se simula con : " MAGENTA "a"RESET"\n");
+	printf("El sensor de movimiento se activa con : " MAGENTA "presencia"RESET"\n");
+	printf("El sensor de movimiento se desactiva con : " MAGENTA "no presencia"RESET"\n");
+	printf("--------------------------------------------------------------\n");
     while (1) {
         reactor_handle_events ();
     }

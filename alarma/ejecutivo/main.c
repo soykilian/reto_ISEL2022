@@ -1,8 +1,10 @@
 #include <sys/time.h>
+#define MAGENTA "\x1b[35m"
+#define RESET   "\x1b[0m"
+#define BLUE    "\x1b[32m"
 #include "alarma.h"
 #include "light.h"
 #include "sound.h"
-
 void delay_until (struct timeval* next_activation)
 {
   struct timeval now, timeout;
@@ -24,6 +26,12 @@ int main()
 	fsm_t* sound_fsm = fsm_new_sound();
 	ALARMA_ACTIVA = 0;
 	int frame = 0;
+	printf("----------------------------" BLUE "MANUAL" RESET "----------------------------\n");
+	printf("Comandos de uso\n");
+	printf("El pulsador se simula con : " MAGENTA "a"RESET"\n");
+	printf("El sensor de movimiento se activa con : " MAGENTA "presencia"RESET"\n");
+	printf("El sensor de movimiento se desactiva con : " MAGENTA "no presencia"RESET"\n");
+	printf("--------------------------------------------------------------\n");
 	while (1)
 	{
 		fsm_fire(interp_fsm);
