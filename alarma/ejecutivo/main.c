@@ -14,7 +14,7 @@ void delay_until (struct timeval* next_activation)
 int main()
 {
 	struct timeval next_activation;
-	struct timeval T = {0, 500};
+	struct timeval T = {0, 50*1000};
 	gettimeofday(&next_activation, NULL);
 
 	fsm_t* alarma_fsm = fsm_new_alarma();
@@ -24,6 +24,7 @@ int main()
 	int frame = 0;
 	while (1)
 	{
+		fsm_fire(interp_fsm);
 		switch (frame){
 			case 0 :
 				fsm_fire(alarma_fsm);
@@ -35,9 +36,15 @@ int main()
 			case 2:
 				fsm_fire(alarma_fsm);
 				break;
+			case 3:
+				fsm_fire(alarma_fsm);
+				break;
+			case 4:
+				fsm_fire(alarma_fsm);
+				break;
 		}
 		timeval_add(&next_activation, &next_activation, &T);
 		delay_until(&next_activation);
-		frame = (frame + 1) % 3;
+		frame = (frame + 1) % 5;
 	}
 }
