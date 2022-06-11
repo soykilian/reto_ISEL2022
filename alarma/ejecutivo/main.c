@@ -1,6 +1,7 @@
 #include <sys/time.h>
 #include "alarma.h"
 #include "light.h"
+#include "sound.h"
 
 void delay_until (struct timeval* next_activation)
 {
@@ -20,6 +21,7 @@ int main()
 	fsm_t* alarma_fsm = fsm_new_alarma();
 	fsm_t* interp_fsm = fsm_new_interp();
 	fsm_t* light_fsm = fsm_new_light();
+	fsm_t* sound_fsm = fsm_new_sound();
 	ALARMA_ACTIVA = 0;
 	int frame = 0;
 	while (1)
@@ -28,19 +30,24 @@ int main()
 		switch (frame){
 			case 0 :
 				fsm_fire(alarma_fsm);
+				fsm_fire(sound_fsm);
 				fsm_fire(light_fsm);
 				break;
 			case 1:
 				fsm_fire(alarma_fsm);
+				fsm_fire(sound_fsm);
 				break;
 			case 2:
 				fsm_fire(alarma_fsm);
+				fsm_fire(sound_fsm);
 				break;
 			case 3:
 				fsm_fire(alarma_fsm);
+				fsm_fire(sound_fsm);
 				break;
 			case 4:
 				fsm_fire(alarma_fsm);
+				fsm_fire(sound_fsm);
 				break;
 		}
 		timeval_add(&next_activation, &next_activation, &T);

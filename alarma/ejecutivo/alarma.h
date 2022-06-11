@@ -1,6 +1,9 @@
-#include <stdio.h>
+#ifndef ALARMA_H
+# define ALARMA_H
 #include "fsm.h"
 #include <unistd.h>
+#include "light.h"
+#include <stdio.h>
 #include <sys/select.h>
 #include <string.h>
 #include <assert.h>
@@ -24,3 +27,4 @@ void fsm_init (fsm_t* this, fsm_trans_t* tt);
 void	fsm_fire(fsm_t* this);
 //fsm_t*	fsm_new_interp(void);
 void delay_until (struct timeval* next_activation);
+#endif
