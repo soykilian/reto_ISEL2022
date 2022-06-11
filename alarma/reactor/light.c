@@ -1,6 +1,6 @@
 #include "alarma.h"
 #include "light.h"
-struct timeval timer1;
+static struct timeval timer1;
 
 static int check_timer(fsm_t *this)
 {

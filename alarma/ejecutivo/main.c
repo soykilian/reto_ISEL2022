@@ -43,7 +43,6 @@ int main()
 				break;
 			case 1:
 				fsm_fire(alarma_fsm);
-				fsm_fire(sound_fsm);
 				break;
 			case 2:
 				fsm_fire(alarma_fsm);
@@ -51,15 +50,17 @@ int main()
 				break;
 			case 3:
 				fsm_fire(alarma_fsm);
-				fsm_fire(sound_fsm);
 				break;
 			case 4:
 				fsm_fire(alarma_fsm);
 				fsm_fire(sound_fsm);
 				break;
+			case 5:
+				fsm_fire(alarma_fsm);
+				break;
 		}
 		timeval_add(&next_activation, &next_activation, &T);
 		delay_until(&next_activation);
-		frame = (frame + 1) % 5;
+		frame = (frame + 1) % 6;
 	}
 }

@@ -1,6 +1,6 @@
 #include "alarma.h"
-struct timeval timer1;
-struct timeval timer10;
+static struct timeval timer1;
+static struct timeval timer10;
 int i = 0;
 char	codigo_introd[4] = "---\0";
 char	correct_code[4] = "332\0";

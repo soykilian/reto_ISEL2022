@@ -22,7 +22,7 @@ static void alarm_task (struct event_handler_t* this) {
 }
 
 static void light_task (struct event_handler_t* this) {
-    static struct timeval period = {0, 250*1000};
+    static struct timeval period = {0, 300*1000};
     fsm_fire(light_fsm);
     timeval_add (&this->next_activation, &this->next_activation, &period);
 }

@@ -1,4 +1,5 @@
 #include "alarma.h"
+#include "light.h"
 
 static char cmd[40];
 
