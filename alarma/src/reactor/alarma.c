@@ -1,7 +1,6 @@
 #include "alarma.h"
 static struct timeval timer1;
 static struct timeval timer10;
-
 int i = 0;
 char	codigo_introd[4] = "---\0";
 char	correct_code[4] = "332\0";
@@ -53,7 +52,7 @@ int check_falsecode(fsm_t *this)
 void act_cont(fsm_t *this)
 {
 	struct timeval now;
-	struct timeval step = {3, 0};
+	struct timeval step = {1, 0};
 
 	gettimeofday(&now, NULL);
 	timeval_add(&timer1, &now, &step);
@@ -63,7 +62,7 @@ void act_cont(fsm_t *this)
 void increase_i(fsm_t *this)
 {
 	struct timeval now;
-	struct timeval step = {3, 0};
+	struct timeval step = {1, 0};
 
 	gettimeofday(&now, NULL);
 	timeval_add(&timer1, &now, &step);

@@ -19,17 +19,22 @@ CC		= gcc
 
 CFLAGS	= -Wall -g
 
-SRCS	= fsm.c timeval_helper.c main.c semaforo.c interp.c
+SRCS_DIR = src
+
+SRC	= fsm.c timeval_helper.c main.c semaforo.c interp.c
+
+SRCS =  $(addprefix $(SRCS_DIR)/, $(SRC))
 
 OBJS	= ${SRCS:.c=.o}
 
+INCLUDES = -I ./inc
 RM		= rm -f
 
 all: ${NAME}
 
 %o: %c
 	@$(ECHO) Compiling $@
-	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} ${INCLUDES}
 
 $(NAME) : ${OBJS}
 	@$(ECHO) Linking $@

@@ -61,8 +61,6 @@ static void * task3_func (void* arg)
 }
 static void * task4_func (void* arg)
 {
-  static int cnt = 0;
-
   struct timeval next_activation;
   struct timeval now, timeout;
 
