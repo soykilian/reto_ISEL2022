@@ -14,8 +14,6 @@ static fsm_t *sound_fsm;
 /*CODIGO*/
 static void * task1_func (void* arg)
 {
-  static int cnt = 0;
-
   struct timeval next_activation;
   struct timeval now, timeout;
 
@@ -32,8 +30,6 @@ static void * task1_func (void* arg)
 /*ALARMA SONIDO*/
 static void * task2_func (void* arg)
 {
-  static int cnt = 0;
-
   struct timeval next_activation;
   struct timeval now, timeout;
 
@@ -50,8 +46,6 @@ static void * task2_func (void* arg)
 /*LUZ DE PRESENCIA*/
 static void * task3_func (void* arg)
 {
-  static int cnt = 0;
-
   struct timeval next_activation;
   struct timeval now, timeout;
 
