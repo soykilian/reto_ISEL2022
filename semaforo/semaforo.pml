@@ -1,11 +1,3 @@
-/*
-ltl p1 {([](<>(semaforo_p==0))) &&
-([](<>(semaforo_p==1))) &&
-([](<>(semaforo_p==2))) &&
-([](<>(semaforo_s==0))) &&
-([](<>(semaforo_s==1))) &&
-([](<>(semaforo_s==2)))}
-*/
 ltl p2 {([](!((semaforo_p==1)&&(semaforo_s==1)))) &&
 ([](!((semaforo_p==2)&&(semaforo_s==2)))) &&
 ([](!((semaforo_p==1)&&(semaforo_s==2)))) &&
